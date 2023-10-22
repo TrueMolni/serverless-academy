@@ -1,0 +1,9 @@
+Nick,Male,23
+Sharlotta,Female,19
+Brandon,Male,22
+Chisa,Female,16
+Bob,Male,30
+Arnold,Male,66
+Batman,Male,45
+Sam,Male,28
+Frodo,Male,26
