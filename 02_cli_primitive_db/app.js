@@ -3,9 +3,30 @@ import inquirer from "inquirer";
 
 const databaseFile = "users.txt";
 
+async function saveUsersToFile(users) {
+  try {
+    await fs.writeFile(databaseFile, JSON.stringify(users), "utf8");
+  } catch (error) {
+    console.error("Error saving users:", error);
+    return;
+  }
+}
+
+async function getUsersFromFile() {
+  try {
+    const data = await fs.readFile(databaseFile, "utf8");
+    return JSON.parse(data);
+  } catch (error) {
+    console.error("Error reading users:", error);
+    return [];
+  }
+}
+
 function saveUser(user) {
-  const userData = `${user.name},${user.gender},${user.age}\n`;
-  fs.appendFile(databaseFile, userData, "utf8");
+  getUsersFromFile().then((users) => {
+    users.push(user);
+    saveUsersToFile(users);
+  });
 }
 
 async function getUserInfo() {
@@ -51,15 +72,12 @@ async function getUserInfo() {
 }
 
 async function searchUser() {
-  const usersData = await fs.readFile(databaseFile, "utf8");
-  const users = usersData.trim()
-    ? usersData.split("\n").map((line) => line.split(","))
-    : [];
+  const users = await getUsersFromFile();
 
   if (users.length > 0) {
     console.log("Existing users:");
     users.forEach((user) => {
-      const name = user[0].trim(); // Видаляємо пробіли з імені користувача
+      const name = user.name.trim();
       if (name) {
         console.log("Name:", name);
       }
@@ -84,14 +102,14 @@ async function searchUser() {
   }
 
   const foundUser = users.find(
-    (user) => user[0].trim().toLowerCase() === searchName.toLowerCase()
+    (user) => user.name.trim().toLowerCase() === searchName.toLowerCase()
   );
 
   if (foundUser) {
     console.log("User found:");
-    console.log("Name:", foundUser[0]);
-    console.log("Gender:", foundUser[1]);
-    console.log("Age:", foundUser[2]);
+    console.log("Name:", foundUser.name);
+    console.log("Gender:", foundUser.gender);
+    console.log("Age:", foundUser.age);
   } else {
     console.log("User not found.");
   }

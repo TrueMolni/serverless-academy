@@ -1,9 +1,1 @@
-Nick,Male,23
-Sharlotta,Female,19
-Brandon,Male,22
-Chisa,Female,16
-Bob,Male,30
-Arnold,Male,66
-Batman,Male,45
-Sam,Male,28
-Frodo,Male,26
+[{"name":"Spider man","gender":"Male","age":"33"},{"name":"spiderman","gender":"Male","age":"33"},{"name":"nick","gender":"Male","age":""},{"name":"Bob","gender":"Male","age":"25"},{"name":"Chisa","gender":"Female","age":"16"},{"name":"Marry","gender":"Male","age":"26"},{"name":"Pippin","gender":"Male","age":"27"},{"name":"Sam","gender":"Male","age":"33"}]
