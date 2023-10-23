@@ -2,8 +2,8 @@ const axios = require("axios");
 const TelegramBot = require("node-telegram-bot-api");
 
 //  підставити справжні
-const API_KEY = "20592fef14d0a4fbdbe2137d29f25cb0";
-const TOKEN = "6373988593:AAFwez6oUV9nT24OVmMcNVDAYJdQPYpoxK4";
+const API_KEY = "20592fef14d0a4fbdbe2137d29f25re0";
+const TOKEN = "6373988593:AAFwez6oUV9nT52OVmMcNVDAYJdQPYpoxK4";
 
 const bot = new TelegramBot(TOKEN, { polling: true });
 
