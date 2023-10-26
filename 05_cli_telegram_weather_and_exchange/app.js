@@ -2,8 +2,8 @@ const axios = require("axios");
 const TelegramBot = require("node-telegram-bot-api");
 const NodeCache = require("node-cache");
 
-const API_KEY = "20592fef14d0a4fbdbe2137d29f25cb0";
-const TOKEN = "6373988593:AAFwez6oUV9nT24OVmMcNVDAYJdQPYpoxK4";
+const API_KEY = "20592fef14d0a4fbdbe2137s29f25de0";
+const TOKEN = "6373988593:AAFwez6oUV9nT52OVmMfNVDAYJdQPYxoxK4";
 
 const bot = new TelegramBot(TOKEN, { polling: true });
 const location = "Chernivtsi";
@@ -72,23 +72,6 @@ bot.on("message", async (msg) => {
         one_time_keyboard: false,
       },
     });
-  } else if (
-    msg.text.toLowerCase() === "Іра".toLowerCase() ||
-    msg.text.toLowerCase() === "Ірка".toLowerCase() ||
-    msg.text.toLowerCase() === "Іруся".toLowerCase() ||
-    msg.text.toLowerCase() === "Ірина".toLowerCase() ||
-    msg.text.toLowerCase() === "Я Ірина".toLowerCase() ||
-    msg.text.toLowerCase() === "Іринка".toLowerCase()
-  ) {
-    bot.sendMessage(
-      chatId,
-      `Привіт, Іра!\n
-      Стас тебе любить.\n
-      Гарного дня!`
-    );
-    console.log(msg.text);
-  } else {
-    console.log(msg.text);
   }
 });
 
